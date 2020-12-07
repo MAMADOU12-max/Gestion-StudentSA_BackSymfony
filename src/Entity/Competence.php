@@ -41,13 +41,14 @@ class Competence
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"getPromoRefbyId:read"  })
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"grpecompetenceCompetence:read","grpecompetenceCompetenceById:read","postgrpecompetence:read","getGroupecompetenceById:read"})
-     * @Groups({"competence:read","competencebyid:read","postcompetence:write","referentielCompetence:read"})
+     * @Groups({"grpecompetenceCompetence:read","grpecompetenceCompetenceById:read","postgrpecompetence:read",
+     *     "getGroupecompetenceById:read","competence:read","competencebyid:read","postcompetence:write","referentielCompetence:read","getPromoRefbyId:read"})
      * @Assert\NotBlank
      */
     private $nomCompetence;

@@ -54,20 +54,23 @@ class GroupeCompetence
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"getPromoRefbyId:read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups({"grpecompetence:read","grpecompetenceCompetence:read","grpecompetenceCompetenceById:read","postgrpecompetence:read",
-     *              "getGroupecompetenceById:read",*"referentiel:read","referentielCompetence:read","getReferentielById:read"})
+     *              "getGroupecompetenceById:read","referentiel:read","referentielCompetence:read","getReferentielById:read",
+     *              "getPromorefbyId:read"})
      */
     private $libelle;
 
     /**
      * @ORM\ManyToMany(targetEntity=Competence::class, mappedBy="grpe_competence")
      * @ApiSubresource()
-     * @Groups({"grpecompetenceCompetence:read","grpecompetenceCompetenceById:read","postgrpecompetence:read","getGroupecompetenceById:read","referentielCompetence:read"})
+     * @Groups({"grpecompetenceCompetence:read","grpecompetenceCompetenceById:read","postgrpecompetence:read",
+     *     "getGroupecompetenceById:read","referentielCompetence:read","getPromorefbyId:read"})
      */
     private $competences;
 

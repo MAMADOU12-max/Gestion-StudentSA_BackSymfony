@@ -19,32 +19,53 @@ class PromoRepository extends ServiceEntityRepository
         parent::__construct($registry, Promo::class);
     }
 
-    // /**
-    //  * @return Promo[] Returns an array of Promo objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+     /**
+      * @return Promo[] Returns an array of Promo objects
+      */
 
-    /*
-    public function findOneBySomeField($value): ?Promo
+    public function promoApprenantAttente()
     {
         return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
+                    ->select('p,a,r')
+                    ->leftJoin('p.referentiels', 'r')
+                    ->leftJoin('p.apprenants' ,'a')
+                    ->andWhere('a.Attente = :val')
+                    ->setParameter('val', 1)
+                    ->getQuery()
+                    ->getResult()
         ;
     }
-    */
+
+
+
+    public function getPromoRefbyId($id)
+    {
+        return $this->createQueryBuilder('p')
+                    ->select('p,r,a,g,c')
+                    ->leftJoin('p.referentiels','r')
+                    ->leftJoin('r.grpcompetence','g')
+                    ->leftJoin('g.competences','c')
+                     ->leftJoin('c.nomCompetence','n')
+                    ->andWhere('p.id = :val')
+                    ->setParameter('val',$id)
+                    ->getQuery()
+                    ->getOneOrNullResult()
+        ;
+    }
+
+
+    public function getPromoRefbAppreneaAttenteById($id)
+    {
+        return $this->createQueryBuilder('p')
+                    ->select('p,r,a,g,c')
+                    ->andWhere('p.id = :val')
+                    ->setParameter('val',$id)
+                    ->leftJoin('p.referentiels','r')
+                    ->leftJoin('r.grpcompetence','g')
+                    ->leftJoin('g.competences','c')
+                    ->leftJoin('c.nomCompetence','n')
+                    ->getQuery()
+                    ->getOneOrNullResult()
+            ;
+    }
 }

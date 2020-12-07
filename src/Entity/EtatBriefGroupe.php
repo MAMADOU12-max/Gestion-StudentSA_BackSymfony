@@ -22,6 +22,11 @@ class EtatBriefGroupe
      */
     private $statut;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Groupe::class, inversedBy="etatBriefgroupe")
+     */
+    private $groupe;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -35,6 +40,18 @@ class EtatBriefGroupe
     public function setStatut(string $statut): self
     {
         $this->statut = $statut;
+
+        return $this;
+    }
+
+    public function getGroupe(): ?Groupe
+    {
+        return $this->groupe;
+    }
+
+    public function setGroupe(?Groupe $groupe): self
+    {
+        $this->groupe = $groupe;
 
         return $this;
     }

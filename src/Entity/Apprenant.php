@@ -46,5 +46,80 @@ use Doctrine\Common\Collections\Collection;
 
 class Apprenant extends User
 {
+    /**
+     * @ORM\ManyToMany(targetEntity=Groupe::class, mappedBy="apprenants")
+     */
+    private $groupes;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $Attente;
+    /**
+     * @var false
+     */
+    private $setAttente;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Promo::class, inversedBy="apprenants")
+     */
+    private $promo;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->groupes = new ArrayCollection();
+        $this->setAttente = false ;
+    }
+
+    /**
+     * @return Collection|Groupe[]
+     */
+    public function getGroupes(): Collection
+    {
+        return $this->groupes;
+    }
+
+    public function addGroupe(Groupe $groupe): self
+    {
+        if (!$this->groupes->contains($groupe)) {
+            $this->groupes[] = $groupe;
+            $groupe->addApprenant($this);
+        }
+
+        return $this;
+    }
+
+    public function removeGroupe(Groupe $groupe): self
+    {
+        if ($this->groupes->removeElement($groupe)) {
+            $groupe->removeApprenant($this);
+        }
+
+        return $this;
+    }
+
+    public function getAttente(): ?bool
+    {
+        return $this->Attente;
+    }
+
+    public function setAttente(bool $Attente): self
+    {
+        $this->Attente = $Attente;
+
+        return $this;
+    }
+
+    public function getPromo(): ?Promo
+    {
+        return $this->promo;
+    }
+
+    public function setPromo(?Promo $promo): self
+    {
+        $this->promo = $promo;
+
+        return $this;
+    }
 }

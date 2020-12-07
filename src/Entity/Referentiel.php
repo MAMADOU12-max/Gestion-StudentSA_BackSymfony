@@ -39,13 +39,6 @@ use Symfony\Component\Serializer\Annotation\Groups;
  *     }
  * )
  */
-//,
-// *         "getReferentielComptById"={
-// *                 "path"="/admin/referentiels/{id}/grpecompetences/{id1}" ,
-// *                "method"="GET"  ,
-// *
-// *                "normalization_context"={"groups"={"getReferentielComptById:read"}}
-// *          }
 class Referentiel
 {
     /**
@@ -57,20 +50,34 @@ class Referentiel
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"referentiel:read","referentielCompetence:read","postReferentiel:read","getReferentielById:read"})
+     * @Groups({"referentiel:read","referentielCompetence:read","postReferentiel:read","getReferentielById:read",
+     *     "getAllpromo:read","getAllpromoprincipal:read","getallgroupe:read","getPromoId:read","getPromoprincipalbyId:read",
+     *     "getPromorefbyId:read","getPromoFormateurById:read"})
      */
     private $libelle;
 
     /**
      * @ORM\ManyToMany(targetEntity=GroupeCompetence::class, inversedBy="referentiels")
-     * @Groups({"referentiel:read","referentielCompetence:read","getReferentielById:read"})
+     * @Groups({"referentiel:read","referentielCompetence:read","getReferentielById:read","getPromorefbyId:read","getPromoRefbyId:read",
+     *  "getPromoRefbAppreneaAttenteById:read"})
      * @ApiSubresource
      */
     private $grpcompetence;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Promo::class, mappedBy="referentiels")
+     */
+    private $promos;
+
+    /**
+     * @ORM\Column(type="blob", nullable=true)
+     */
+    private $programme;
+
     public function __construct()
     {
         $this->grpcompetence = new ArrayCollection();
+        $this->promos = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -110,6 +117,48 @@ class Referentiel
     public function removeGrpcompetence(GroupeCompetence $grpcompetence): self
     {
         $this->grpcompetence->removeElement($grpcompetence);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Promo[]
+     */
+    public function getPromos(): Collection
+    {
+        return $this->promos;
+    }
+
+    public function addPromo(Promo $promo): self
+    {
+        if (!$this->promos->contains($promo)) {
+            $this->promos[] = $promo;
+            $promo->setReferentiels($this);
+        }
+
+        return $this;
+    }
+
+    public function removePromo(Promo $promo): self
+    {
+        if ($this->promos->removeElement($promo)) {
+            // set the owning side to null (unless already changed)
+            if ($promo->getReferentiels() === $this) {
+                $promo->setReferentiels(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getProgramme()
+    {
+        return $this->programme;
+    }
+
+    public function setProgramme($programme): self
+    {
+        $this->programme = $programme;
 
         return $this;
     }

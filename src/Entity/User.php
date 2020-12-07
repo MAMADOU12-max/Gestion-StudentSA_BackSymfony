@@ -51,12 +51,14 @@ class User implements UserInterface
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"postApprenantPromo:write","postgroupe:write","putgroupebyId:read","getPromoprincipalbyId:read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
-     * @Groups({"users:read","apprenants:read","formateur:read","profil:read"})
+     * @Groups({"users:read","apprenants:read","formateur:read","profil:read","getAllpromo:read","getAllpromoprincipal:read",
+     *     "getallgroupe:read","getallgroupeApprenant:read","getPromoId:read","getPromoprincipalbyId:read","getAllpromoApprenantAttente:read"})
      */
     private $username;
 
@@ -70,7 +72,8 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"users:read","apprenants:read","formateur:read","profil:read"})
+     * @Groups({"users:read","apprenants:read","formateur:read","profil:read","getAllpromoprincipal:read","getallgroupeApprenant:read"
+     *          ,"getPromoId:read","getPromoprincipalbyId:read","getAllpromoApprenantAttente:read","getPromoFormateurById:read"})
      * @Assert\NotBlank(message="Give your firstname please!")
      * @Assert\Length(min=3)
      */
@@ -78,7 +81,9 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"users:read","apprenants:read","formateur:read","profil:read"})
+     * @Groups({"users:read","apprenants:read","formateur:read","profil:read","getAllpromo:read","getAllpromoprincipal:read",
+     *     "getallgroupe:read","getallgroupeApprenant:read","getPromoId:read","getPromoprincipalbyId:read",
+     *     "getAllpromoApprenantAttente:read","getPromoFormateurById:read"})
      * @Assert\NotBlank(message="you must give a lastname")
      * @Assert\Length(min=3)
      */
@@ -86,7 +91,9 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"users:read","apprenants:read","formateur:read","profil:read"})
+     * @Groups({"users:read","apprenants:read","formateur:read","profil:read","getAllpromo:read","getAllpromoprincipal:read"
+     *         ,"getallgroupe:read","getallgroupeApprenant:read","getPromoId:read","getPromoprincipalbyId:read",
+     *          "getAllpromoApprenantAttente:read","getPromoFormateurById:read"})
      * @Assert\NotBlank(message="Enter a valid mail please!")
      * @Assert\Email(
      *     message = "The email '{{ value }}' is not a valid email.! Oops"
