@@ -20,12 +20,11 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 /**
  * @ORM\Entity(repositoryClass=ProfilRepository::class)
  * @ApiFilter(SearchFilter::class, properties={"Archivage":"exact"})
- *@UniqueEntity("libelle")
+ * @UniqueEntity("libelle")
  * @ApiResource(
  * normalizationContext={"groups"={"profil:read"}} ,
- *      attributes={
- *          "security"="is_granted('ROLE_ADMIN')" ,
- *          "security_message"="You don't have permitted to acced in this resource"
+ *      attributes={ 
+ *          "security_message"="You don't have permitted to acced in this resource,please verify"
  *     },
  *     collectionOperations={
  *           "getallprofil"={
@@ -77,13 +76,14 @@ class Profil
 
     /**
      * @ORM\OneToMany(targetEntity=User::class, mappedBy="profil")
-     * @Groups({"profil:read"})
      * @ApiSubresource()
+     * @Groups({"profil:read"})
      */
     private $users;
 
     /**
      * @ORM\Column(type="boolean")
+       * @Groups({"profil:read"})
      */
     private $Archivage;
 

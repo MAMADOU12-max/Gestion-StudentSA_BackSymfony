@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20201203133600 extends AbstractMigration
+final class Version20210102134319 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -20,16 +20,12 @@ final class Version20201203133600 extends AbstractMigration
     public function up(Schema $schema) : void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE user ADD promo_id INT DEFAULT NULL');
-        $this->addSql('ALTER TABLE user ADD CONSTRAINT FK_8D93D649D0C07AFF FOREIGN KEY (promo_id) REFERENCES promo (id)');
-        $this->addSql('CREATE INDEX IDX_8D93D649D0C07AFF ON user (promo_id)');
+        $this->addSql('ALTER TABLE profil_de_sortie ADD archivage TINYINT(1) NOT NULL');
     }
 
     public function down(Schema $schema) : void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE user DROP FOREIGN KEY FK_8D93D649D0C07AFF');
-        $this->addSql('DROP INDEX IDX_8D93D649D0C07AFF ON user');
-        $this->addSql('ALTER TABLE user DROP promo_id');
+        $this->addSql('ALTER TABLE profil_de_sortie DROP archivage');
     }
 }

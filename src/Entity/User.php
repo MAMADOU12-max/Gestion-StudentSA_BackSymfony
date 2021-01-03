@@ -50,8 +50,8 @@ class User implements UserInterface
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     * @Groups({"postApprenantPromo:write","postgroupe:write","putgroupebyId:read","getPromoprincipalbyId:read"})
+     * @ORM\Column(type="integer") 
+     * @Groups({"profil:read","users:read","postApprenantPromo:write","postgroupe:write","putgroupebyId:read","getPromoprincipalbyId:read"})
      */
     private $id;
 
@@ -62,6 +62,9 @@ class User implements UserInterface
      */
     private $username;
 
+    /**
+     * @Groups({"users:read"})
+    */
     private $roles = [];
 
     /**
@@ -112,6 +115,7 @@ class User implements UserInterface
     private $Archivage;
 
     /**
+     * @Groups({"users:read","profil:read"})
      * @ORM\Column(type="blob", nullable=true)
      */
     private $photo;
@@ -257,7 +261,12 @@ class User implements UserInterface
 
     public function getPhoto()
     {
-        return $this->photo;
+        $photo = $this->photo ;
+        // for photo
+        if($photo) {
+           return (base64_encode(stream_get_contents($this->photo))) ; 
+        }
+        return $photo ;
     }
 
     public function setPhoto($photo): self
