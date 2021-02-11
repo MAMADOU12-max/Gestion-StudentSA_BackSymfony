@@ -35,7 +35,12 @@ use Symfony\Component\Serializer\Annotation\Groups;
  *                 "path"="/admin/referentiels/{id}" ,
  *                "method"="GET"  ,
  *                "normalization_context"={"groups"={"getReferentielById:read"}}
- *          }
+ *          },
+*          "deleteReferentielById"={
+*                 "path"="/admin/referentiels/{id}" ,
+*                "method"="DELETE"  ,
+*                "normalization_context"={"groups"={"deleteReferentielById:read"}}
+*          }
  *     }
  * )
  */
@@ -45,6 +50,9 @@ class Referentiel
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"referentiel:read","referentielCompetence:read","getReferentielById:read",
+     *     "getAllpromo:read","getAllpromoprincipal:read","getallgroupe:read","getPromoId:read","getPromoprincipalbyId:read",
+     *     "getPromorefbyId:read","getPromoFormateurById:read"})
      */
     private $id;
 
@@ -73,6 +81,22 @@ class Referentiel
      * @ORM\Column(type="blob", nullable=true)
      */
     private $programme;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"referentiel:read","referentielCompetence:read","postReferentiel:read","getReferentielById:read",
+     *     "getAllpromo:read","getAllpromoprincipal:read","getallgroupe:read","getPromoId:read","getPromoprincipalbyId:read",
+     *     "getPromorefbyId:read","getPromoFormateurById:read"})
+     */
+    private $critereDevaluation;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"referentiel:read","referentielCompetence:read","postReferentiel:read","getReferentielById:read",
+           *     "getAllpromo:read","getAllpromoprincipal:read","getallgroupe:read","getPromoId:read","getPromoprincipalbyId:read",
+           *     "getPromorefbyId:read","getPromoFormateurById:read"})
+     */
+    private $critereDadmission;
 
     public function __construct()
     {
@@ -159,6 +183,30 @@ class Referentiel
     public function setProgramme($programme): self
     {
         $this->programme = $programme;
+
+        return $this;
+    }
+
+    public function getCritereDevaluation(): ?string
+    {
+        return $this->critereDevaluation;
+    }
+
+    public function setCritereDevaluation(?string $critereDevaluation): self
+    {
+        $this->critereDevaluation = $critereDevaluation;
+
+        return $this;
+    }
+
+    public function getCritereDadmission(): ?string
+    {
+        return $this->critereDadmission;
+    }
+
+    public function setCritereDadmission(?string $critereDadmission): self
+    {
+        $this->critereDadmission = $critereDadmission;
 
         return $this;
     }

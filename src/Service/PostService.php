@@ -96,19 +96,33 @@ class PostService
 
         $dataId = $this->userRepository->find($id) ;
         $data = $request->request->all();
-
+        
 
         foreach ($data as $key => $value) {
             if ( $key !== "_method" || !$value) {
                 $dataId->{"set".ucfirst($key)}($value) ;
             }
         }
-        $photo = $request->files->get("photo") ;
-        $photoBlob = fopen($photo->getRealPath(),"rb");
-        if($photo) {
 
-            $dataId->setPhoto($photoBlob);
+//         $photo = $request->files->get("photo") ;
+//         $photoBlob = fopen($photo->getRealPath(),"rb");
+//            dd($data);
+//         if($photo) {
+//
+//             $dataId->setPhoto($photoBlob);
+//
+//         }
 
+         //recupération de l'image
+        $photo = $request->files->get("photo");
+        //is not obliged
+        if($photo)
+        {
+            //  return new JsonResponse("veuillez mettre une images",Response::HTTP_BAD_REQUEST,[],true);
+            //$base64 = base64_decode($imagedata);
+            $photoBlob = fopen($photo->getRealPath(),"rb");
+
+           $dataId->setPhoto($photoBlob);
         }
 
         $errors = $this->validator->validate($dataId);
@@ -116,11 +130,43 @@ class PostService
             $errors = $this->serialize->serialize($errors,"json");
             return new JsonResponse($errors,Response::HTTP_BAD_REQUEST,[],true);
         }
-
+        //dd($dataId);
         $this->manager->persist($dataId);
         $this->manager->flush();
 
         return new JsonResponse("success",201) ;
 
+    }
+
+    // Update User
+    public function UpdateUser(Request $request, string $filename = null)
+    {
+        $row = $request->getContent();
+        $delimitor = "multipart/form-data; boundary=";
+        // dd($delimitor);
+        $boundary = "--".explode($delimitor, $request->headers->get("content-type"))[1];
+        // dd($boundary);
+        $elements = str_replace([$boundary,'Content-Disposition: form-data;',"name="],"",$row);
+        //dd($elements);
+        $tabElements = explode("\r\n\r\n", $elements);
+        //dd($tabElements);
+        $data = [];
+
+        for ($i = 0; isset($tabElements[$i+1]); $i++) {
+
+            $key = str_replace(["\r\n",'"','"'],'',$tabElements[$i]);
+            //dd($key);
+            if (strchr($key, $filename)) {
+                $file = fopen('php://memory', 'r+');
+                fwrite($file, $tabElements[$i+1]);
+                rewind($file);
+                $data[$filename] = $file;
+            } else {
+                $val = str_replace(["\r\n",'--'], '', $tabElements[$i+1]);
+                $data[$key] = $val;
+            }
+        }
+        //dd($data);
+        return $data;
     }
 }

@@ -41,7 +41,14 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
  *                  "security_post_denormalize"="is_granted('ROLE_ADMIN')"   ,
  *                "security_message"="Only admins can add users." ,
  *                 "method"="GET"
+ *              },
+ *                 "deletebyId"={
+ *                  "path"="/admin/users/{id}" ,
+ *                  "security_post_denormalize"="is_granted('ROLE_ADMIN')"   ,
+ *                "security_message"="Only admins can add users." ,
+ *                 "method"="DELETE"
  *              }
+
  *     }
  * )
  */

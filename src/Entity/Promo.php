@@ -41,6 +41,10 @@ use Symfony\Component\Serializer\Annotation\Groups;
  *              "method"="GET" ,
  *              "normalization_context"={"groups"={"getPromoId:read"}}
  *          } ,
+  *         "deletePromoId"={
+ *              "path"="/admin/promo/{id}" ,
+ *              "method"="DELETE"
+ *          } ,
  *           "getPromoprincipalbyId"={
  *              "path"="/admin/promo/{id}/principal" ,
  *              "method"="GET" ,
@@ -75,6 +79,9 @@ class Promo
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+    * @Groups({"getAllpromo:read","getAllpromoprincipal:read","postApprenantPromo:write","getallgroupe:read","getPromoId:read",
+     *          "getPromoprincipalbyId:read","getAllpromoApprenantAttente:read","getPromoRefbyId:read","getPromoRefbAppreneaAttenteById:read",
+     *          "getPromoFormateurById:read"})
      */
     private $id;
 
@@ -138,6 +145,14 @@ class Promo
      * @Groups({"getPromoprincipalbyId:read","getAllpromoApprenantAttente:read"})
      */
     private $apprenants;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+   * @Groups({"getAllpromo:read","getAllpromoprincipal:read","postApprenantPromo:write","getallgroupe:read","getPromoId:read",
+     *          "getPromoprincipalbyId:read","getAllpromoApprenantAttente:read","getPromoRefbyId:read","getPromoRefbAppreneaAttenteById:read",
+     *          "getPromoFormateurById:read"})
+     */
+    private $description;
 
     public function __construct()
     {
@@ -291,6 +306,18 @@ class Promo
                 $apprenant->setPromo(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }

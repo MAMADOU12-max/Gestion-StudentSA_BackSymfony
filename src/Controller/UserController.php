@@ -42,13 +42,15 @@ class UserController extends AbstractController
      */
     private $validator;
 
-    public function __construct(SerializerInterface $serializer, EntityManagerInterface $manager, ValidatorInterface $validator, UserPasswordEncoderInterface $encoder )
+    public function __construct(SerializerInterface $serializer, UserRepository $userRepository,
+    EntityManagerInterface $manager, ValidatorInterface $validator,
+     UserPasswordEncoderInterface $encoder )
     {
         $this->serialize = $serializer ;
         $this->validator = $validator ;
         $this->encoder = $encoder ;
         $this->manager = $manager ;
-
+        $this->userRepository = $userRepository ;
     }
 
     /**
@@ -68,9 +70,9 @@ class UserController extends AbstractController
 
         //all data
         $user = $request->request->all() ;
+
         //get profil
         $profil = $user["profils"] ;
-
          if($profil == "ADMIN") {
              $user = $this->serialize->denormalize($user, "App\Entity\Admin");
         } elseif ($profil =="APPRENANT") {
@@ -82,16 +84,16 @@ class UserController extends AbstractController
         }
         //recupération de l'image
         $photo = $request->files->get("photo");
-        //specify entity
-
-        if(!$photo)
+        //is not obliged
+        if($photo)
         {
-            return new JsonResponse("veuillez mettre une images",Response::HTTP_BAD_REQUEST,[],true);
-        }
-        //$base64 = base64_decode($imagedata);
-        $photoBlob = fopen($photo->getRealPath(),"rb");
+            //  return new JsonResponse("veuillez mettre une images",Response::HTTP_BAD_REQUEST,[],true);
+            //$base64 = base64_decode($imagedata);
+            $photoBlob = fopen($photo->getRealPath(),"rb");
 
-        $user->setPhoto($photoBlob);
+            $user->setPhoto($photoBlob);
+        }
+
 
         $errors = $this->validator->validate($user);
         if (count($errors)){
@@ -114,27 +116,59 @@ class UserController extends AbstractController
     }
 
 
-    /**
+    // /**
+    //  * @Route(
+    //  *      name="updated" ,
+    //  *      path="/api/admin/users/{id}" ,
+    //  *       methods={"PUT"}
+    //  *)
+    //  * @Route(
+    //  *      name="UpdatedApprenant" ,
+    //  *      path="/api/apprenants/{id}" ,
+    //  *     methods={"PUT"} ,
+    //  *     defaults={
+    //  *           "__controller"="App\Controller\UserController::addUser",
+    //  *         "_api_resource_class"=Apprenant::class,
+    //  *         "_api_collection_operation_name"="adding"
+    //  *     }
+    //  *
+    //  *)
+    //  */
+    // public function cool(Request $request , PostService $postService,$id) {
+    //    return  $postService->putData($request, $id) ;
+
+    // }
+
+
+    /*Test normal edit user */
+
+     /**
      * @Route(
      *      name="updated" ,
      *      path="/api/admin/users/{id}" ,
      *       methods={"PUT"}
      *)
-     * @Route(
-     *      name="UpdatedApprenant" ,
-     *      path="/api/apprenants/{id}" ,
-     *     methods={"PUT"} ,
-     *     defaults={
-     *           "__controller"="App\Controller\UserController::addUser",
-     *         "_api_resource_class"=Apprenant::class,
-     *         "_api_collection_operation_name"="adding"
-     *     }
-     *
-     *)
      */
-    public function cool(Request $request , PostService $postService,$id) {
-       return  $postService->putData($request, $id) ;
-
-    }
+    public function putUser(Request $request, PostService $postService, 
+    EntityManagerInterface $manager,SerializerInterface $serializer,UserRepository $u, $id) {
+        $userForm= $postService->UpdateUser($request, 'photo');
+        // dd($userForm);
+         $user = $u->find($id);
+         foreach ($userForm as $key => $value) {
+             if($key === 'profils'){
+                 $value = $serializer->denormalize($value, Profil::class);
+             }
+             $setter = 'set'.ucfirst(trim(strtolower($key)));
+             //dd($setter);
+             if(method_exists(User::class, $setter)) {
+                 $user->$setter($value);
+                 //dd($user);
+             }
+         }
+         $manager->flush();
+         return new JsonResponse("success",200,[],true);
+ 
+     }
+    
 
 }

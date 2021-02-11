@@ -27,8 +27,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *                "method"="GET" ,
  *                  "normalization_context"={"groups"={"grpecompetenceCompetence:read"}} ,
  *          } ,
- *          "adding"={
- *              "route_name"="addGrpecompetence" ,
+ *          "addingGrp"={
  *               "path"="/admin/grpecompetences" ,
  *                "method"="POST" ,
  *                  "normalization_context"={"groups"={""}} ,
@@ -45,31 +44,48 @@ use Symfony\Component\Validator\Constraints as Assert;
  *                 "method"="GET" ,
  *                  "normalization_context"={"groups"={"grpecompetenceCompetenceById:read"}} ,
  *          } ,
+ *          "deleteGroupecompetence"={
+*               "path"="/admin/grpecompetences/{id}" ,
+ *              "method"="DELETE" 
+ *          } ,
+ *          "editGroupeCompetence"={
+ *               "path"="/admin/grpecompetences/{id}" ,
+ *               "method"="PUT" ,
+ *               "normalization_context"={"groups"={"editgrpeCompetenceById:read"}} ,
+ *          }
  *     }
  * )
  */
+
+ // adding groupe competence with controller
+//   *          "adding"={
+//      *              "route_name"="addGrpecompetence" ,
+//      *               "path"="/admin/grpecompetences" ,
+//      *                "method"="POST" ,
+//      *                  "normalization_context"={"groups"={""}} ,
+//      *          }
+
 class GroupeCompetence
 {
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"getPromoRefbyId:read"})
+     * @Groups({"getPromoRefbyId:read","grpecompetenceCompetence:read","grpecompetence:read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"grpecompetence:read","grpecompetenceCompetence:read","grpecompetenceCompetenceById:read","postgrpecompetence:read",
+     * @Groups({"grpecompetence:read","grpecompetenceCompetence:read","grpecompetenceCompetenceById:read",
      *              "getGroupecompetenceById:read","referentiel:read","referentielCompetence:read","getReferentielById:read",
-     *              "getPromorefbyId:read"})
+     *              "getPromorefbyId:read","editgrpeCompetenceById:read"})
      */
     private $libelle;
 
     /**
      * @ORM\ManyToMany(targetEntity=Competence::class, mappedBy="grpe_competence")
-     * @ApiSubresource()
-     * @Groups({"grpecompetenceCompetence:read","grpecompetenceCompetenceById:read","postgrpecompetence:read",
+     * @Groups({"grpecompetenceCompetence:read","grpecompetenceCompetenceById:read","editgrpeCompetenceById:read",
      *     "getGroupecompetenceById:read","referentielCompetence:read","getPromorefbyId:read"})
      */
     private $competences;
@@ -78,6 +94,14 @@ class GroupeCompetence
      * @ORM\ManyToMany(targetEntity=Referentiel::class, mappedBy="grpcompetence")
      */
     private $referentiels;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"grpecompetence:read","grpecompetenceCompetence:read","grpecompetenceCompetenceById:read","postgrpecompetence:read",
+     *              "getGroupecompetenceById:read","referentiel:read","referentielCompetence:read","getReferentielById:read",
+     *              "getPromorefbyId:read","editgrpeCompetenceById:read"})
+     */
+    private $description;
 
     public function __construct()
     {
@@ -152,6 +176,18 @@ class GroupeCompetence
         if ($this->referentiels->removeElement($referentiel)) {
             $referentiel->removeGrpcompetence($this);
         }
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }

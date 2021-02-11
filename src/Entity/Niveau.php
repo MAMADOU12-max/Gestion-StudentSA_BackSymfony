@@ -33,6 +33,18 @@ class Niveau
      */
     private $competence;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     *  @Groups({"competence:read","competencebyid:read","getGroupecompetenceById:read","postcompetence:write"})
+     */
+    private $criteredEvaluation;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     *  @Groups({"competence:read","competencebyid:read","getGroupecompetenceById:read","postcompetence:write"})
+     */
+    private $groupedAction;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -58,6 +70,30 @@ class Niveau
     public function setCompetence(?Competence $competence): self
     {
         $this->competence = $competence;
+
+        return $this;
+    }
+
+    public function getCriteredEvaluation(): ?string
+    {
+        return $this->criteredEvaluation;
+    }
+
+    public function setCriteredEvaluation(?string $criteredEvaluation): self
+    {
+        $this->criteredEvaluation = $criteredEvaluation;
+
+        return $this;
+    }
+
+    public function getGroupedAction(): ?string
+    {
+        return $this->groupedAction;
+    }
+
+    public function setGroupedAction(string $groupedAction): self
+    {
+        $this->groupedAction = $groupedAction;
 
         return $this;
     }

@@ -14,149 +14,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0458db57-5deb-4503-898f-b9fb1db90366" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/backFilRougeSelf.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/backFilRougeSelf.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/OverloadToken/OverToken.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/api_platform.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/api_platform.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/cache.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/cache.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/doctrine.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/doctrine_migrations.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/doctrine_migrations.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/framework.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/framework.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/lexik_jwt_authentication.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/lexik_jwt_authentication.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/nelmio_cors.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/nelmio_cors.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/prod/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/prod/doctrine.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/prod/routing.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/prod/routing.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/routing.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/routing.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/test/framework.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/test/framework.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/test/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/test/twig.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/test/validator.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/test/validator.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/validator.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/validator.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/preload.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/preload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes/annotations.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes/annotations.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes/api_platform.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes/api_platform.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes/dev/framework.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes/dev/framework.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201118105851.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20201118105851.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201118134104.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20201118134104.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201118143920.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20201118143920.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201118201852.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20201118201852.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201119102920.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20201119102920.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201123150443.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20201123150443.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201125091203.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20201125091203.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201125121744.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20201125121744.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201126121622.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20201126121622.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201127154014.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20201127154014.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201130114534.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20201130114534.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201201135446.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20201201135446.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201202084656.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20201202084656.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201202111940.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20201202111940.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201202132921.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20201202132921.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201203000952.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20201203000952.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201203133600.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20201203133600.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201204085129.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20201204085129.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ApprenantController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ApprenantController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/CmController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CmController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/CompetenceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CompetenceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/FormateurController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/FormateurController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/GrpeCompetenceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GrpeCompetenceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ReferentielController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReferentielController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AdminFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AdminFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/ApprenantFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/ApprenantFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/CmFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/CmFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/FormateurFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/FormateurFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/ProfilFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/ProfilFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/PromoFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/PromoFixtures.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DataPersister/ProfilPersister.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataPersister/ProfilPersister.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataProvider/PromoDataProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataProvider/PromoDataProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataProvider/PromoDataProvider.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Apprenant.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Apprenant.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/ApprenantLivrablePartiel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/ApprenantLivrablePartiel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Brief.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Brief.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/BriefApprenant.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/BriefApprenant.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/BriefLivrable.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/BriefLivrable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/BriefMaPromo.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/BriefMaPromo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Chat.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Chat.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Cm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Cm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Commentaire.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Commentaire.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Competence.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Competence.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/CompetencesValides.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/CompetencesValides.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/EtatBriefGroupe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/EtatBriefGroupe.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/FilDeDiscussion.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/FilDeDiscussion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Formateur.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Formateur.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Groupe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Groupe.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/GroupeCompetence.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/GroupeCompetence.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/GroupeTag.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/GroupeTag.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Livrable.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Livrable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/LivrablePartiel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/LivrablePartiel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Niveau.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Niveau.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Profil.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Profil.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/ProfilDeSortie.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/ProfilDeSortie.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Promo.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Promo.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Referentiel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Referentiel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Ressource.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Ressource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Tag.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Tag.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/AdminRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/AdminRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ApprenantLivrablePartielRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ApprenantLivrablePartielRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ApprenantRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ApprenantRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/BriefApprenantRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/BriefApprenantRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/BriefLivrableRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/BriefLivrableRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/BriefMaPromoRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/BriefMaPromoRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/BriefRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/BriefRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ChatRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ChatRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/CmRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/CmRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/CommentaireRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/CommentaireRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/CompetenceRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/CompetenceRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/CompetencesValidesRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/CompetencesValidesRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/EtatBriefGroupeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/EtatBriefGroupeRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/FilDeDiscussionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/FilDeDiscussionRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/FormateurRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/FormateurRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/GroupeCompetenceRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/GroupeCompetenceRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/GroupeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/GroupeRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/GroupeTagRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/GroupeTagRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/LivrablePartielRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/LivrablePartielRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/LivrableRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/LivrableRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/NiveauRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/NiveauRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ProfilDeSortieRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ProfilDeSortieRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ProfilRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ProfilRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/PromoRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PromoRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ReferentielRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ReferentielRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/RessourceRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/RessourceRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/TagRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/TagRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/Voter/CompetenceVoter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/Voter/CompetenceVoter.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/PostService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/PostService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Service.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Service.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/apprenant/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/apprenant/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cm/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cm/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/competence/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/competence/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/formateur/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/formateur/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/grpe_competence/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/grpe_competence/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/referentiel/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/referentiel/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -279,8 +152,9 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Sonatel Academie/MeetACademie AngularAli/angularAcademiesa" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -336,6 +210,12 @@
       <workItem from="1608634562136" duration="132000" />
       <workItem from="1608634862124" duration="426000" />
       <workItem from="1608637155327" duration="108000" />
+      <workItem from="1611876813156" duration="5412000" />
+      <workItem from="1611959092809" duration="5205000" />
+      <workItem from="1612038536851" duration="3035000" />
+      <workItem from="1612117584545" duration="6442000" />
+      <workItem from="1612205095745" duration="3128000" />
+      <workItem from="1613004911526" duration="2465000" />
     </task>
     <servers />
   </component>
@@ -353,36 +233,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/Entity/Profil.php</url>
-          <line>4</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/Service/PostService.php</url>
-          <line>16</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/Controller/ApprenantController.php</url>
-          <line>56</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/Controller/GrpeCompetenceController.php</url>
-          <line>182</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/Controller/GrpeCompetenceController.php</url>
-          <line>127</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

@@ -32,15 +32,16 @@ use Doctrine\Common\Collections\Collection;
  *              "path"="/apprenants/{id}" ,
  *               "security_post_denormalize"="is_granted('ROLE_FORMATEUR') or is_granted('ROLE_CM') or is_granted('ROLE_APPRENANT')" ,
  *               "security_message"="Only teachers can acced in the student's data !"
- *          },
- *          "UpdatedApprenant"={
- *              "deserialize"= false ,
- *               "security_post_denormalize"="is_granted('ROLE_FORMATEUR') or is is_granted('ROLE_APPRENANT')" ,
- *              "security_message"="Only teachers can acced in the data students!"
  *          }
  *     }
  * )
  */
+
+// *          "UpdatedApprenant"={
+//     *              "deserialize"= false ,
+//     *               "security_post_denormalize"="is_granted('ROLE_FORMATEUR') or is is_granted('ROLE_APPRENANT')" ,
+//     *              "security_message"="Only teachers can acced in the data students!"
+//     *          }
 
 
 

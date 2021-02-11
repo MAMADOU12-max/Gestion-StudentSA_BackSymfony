@@ -41,3 +41,11 @@ services:
     App\Service\UploadService: ~
     # Uncomment only if autoconfiguration is disabled
     #tags: [ 'api_platform.data_persister' ]
+    acme_api.event.jwt_created_listener:
+        class: App\OverloadToken\OverToken
+        tags:
+            - {
+                name: kernel.event_listener,
+                event: lexik_jwt_authentication.on_jwt_created,
+                method: tokenOver
+            }

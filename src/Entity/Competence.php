@@ -41,14 +41,17 @@ class Competence
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"getPromoRefbyId:read"  })
+      * @Groups({"grpecompetenceCompetence:read","grpecompetenceCompetenceById:read",
+     *     "getGroupecompetenceById:read","competence:read","competencebyid:read",
+     *"postcompetence:write","referentielCompetence:read","getPromoRefbyId:read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"grpecompetenceCompetence:read","grpecompetenceCompetenceById:read","postgrpecompetence:read",
-     *     "getGroupecompetenceById:read","competence:read","competencebyid:read","postcompetence:write","referentielCompetence:read","getPromoRefbyId:read"})
+     * @Groups({"grpecompetenceCompetence:read","grpecompetenceCompetenceById:read",
+     *     "getGroupecompetenceById:read","competence:read","competencebyid:read","postcompetence:write",
+     *      "referentielCompetence:read","getPromoRefbyId:read"})
      * @Assert\NotBlank
      */
     private $nomCompetence;
@@ -70,6 +73,13 @@ class Competence
      * )
      */
     private $niveaux;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+       * @Groups({"grpecompetenceCompetence:read","grpecompetenceCompetenceById:read","postgrpecompetence:read",
+     *     "getGroupecompetenceById:read","competence:read","competencebyid:read","postcompetence:write","referentielCompetence:read","getPromoRefbyId:read"})
+     */
+    private $libelle;
 
     public function __construct()
     {
@@ -144,6 +154,18 @@ class Competence
                 $niveau->setCompetence(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getLibelle(): ?string
+    {
+        return $this->libelle;
+    }
+
+    public function setLibelle(?string $libelle): self
+    {
+        $this->libelle = $libelle;
 
         return $this;
     }
