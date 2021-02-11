@@ -139,6 +139,45 @@ class UserController extends AbstractController
 
     // }
 
+    //    Delete User
+    /**
+     * @Route(
+     *      name="deleteUser" ,
+     *      path="/api/admin/users/{id}",
+     *     methods={"DELETE"},
+     *       defaults={
+      *           "__controller"="App\Controller\UserController::deleteUser",
+      *         "_api_resource_class"=User::class,
+      *         "_api_collection_operation_name"="deleteUser"
+      *     }
+     *)
+     */
+    public function deleteUser(Request $request ,$id) {
+        $user = $this->userRepository->find($id);
+        $user->setArchivage(true);
+
+        $this->manager->persist($user);
+        $this->manager->flush();
+        return new JsonResponse("success",201) ;
+    }
+
+    //    Restore User
+      /**
+      * @Route(
+      *      name="Restore" ,
+      *      path="/api/admin/users/{id}/restore",
+      *     methods={"DELETE"}
+      *)
+      */
+     public function restore(Request $request ,$id) {
+        $user = $this->userRepository->find($id);
+        $user->setArchivage(false);
+
+         $this->manager->persist($user);
+         $this->manager->flush();
+         return new JsonResponse("success",201) ;
+     }
+
 
     /*Test normal edit user */
 

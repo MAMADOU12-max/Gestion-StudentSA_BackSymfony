@@ -43,10 +43,9 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
  *                 "method"="GET"
  *              },
  *                 "deletebyId"={
- *                  "path"="/admin/users/{id}" ,
+ *                      "route_name"="deleteUser" ,
  *                  "security_post_denormalize"="is_granted('ROLE_ADMIN')"   ,
- *                "security_message"="Only admins can add users." ,
- *                 "method"="DELETE"
+ *                "security_message"="Only admins can add users."
  *              }
 
  *     }
