@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
 use App\Repository\CompetenceRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -10,9 +11,11 @@ use Symfony\Component\Serializer\Annotation\Groups;
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiSubresource;
 use Symfony\Component\Validator\Constraints as Assert;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 
 /**
  * @ORM\Entity(repositoryClass=CompetenceRepository::class)
+ *@ApiFilter(SearchFilter::class, properties={"Archivage":"exact"})
  * @ApiResource(
  *     collectionOperations={
  *          "getAllcompetences"=  {
@@ -23,7 +26,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *           "postCompetence"=  {
  *              "path"="admin/competences" ,
  *              "method"="POST",
- *              "denormalization_context"={"groups"={"postcompetence:write"}}
+ *              "denormalization_context"={"groups"={"postcompetence:write"}},
  *          }
  *     } ,
  *     itemOperations={
@@ -57,14 +60,16 @@ class Competence
     private $nomCompetence;
 
     /**
+     * @Groups({"postcompetence:write"})
      * @ORM\ManyToMany(targetEntity=GroupeCompetence::class, inversedBy="competences")
      */
     private $grpe_competence;
 
     /**
      * @ORM\OneToMany(targetEntity=Niveau::class, mappedBy="competence",cascade={"persist"})
-     *@ApiSubresource()
-     *  @Groups({"competence:read","competencebyid:read","getGroupecompetenceById:read","postcompetence:write"})
+     * @ApiSubresource()
+     *  @Groups({"competence:read","competencebyid:read","getGroupecompetenceById:read",
+     * "postcompetence:write"})
      * @Assert\Count(
      *      min = 3,
      *      max = 3,
@@ -77,14 +82,21 @@ class Competence
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
        * @Groups({"grpecompetenceCompetence:read","grpecompetenceCompetenceById:read","postgrpecompetence:read",
-     *     "getGroupecompetenceById:read","competence:read","competencebyid:read","postcompetence:write","referentielCompetence:read","getPromoRefbyId:read"})
+     *     "getGroupecompetenceById:read","competence:read","competencebyid:read"
+     * ,"postcompetence:write","referentielCompetence:read","getPromoRefbyId:read"})
      */
     private $libelle;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $Archivage;
 
     public function __construct()
     {
         $this->grpe_competence = new ArrayCollection();
         $this->niveaux = new ArrayCollection();
+        $this->Archivage = false;
     }
 
     public function getId(): ?int
@@ -166,6 +178,18 @@ class Competence
     public function setLibelle(?string $libelle): self
     {
         $this->libelle = $libelle;
+
+        return $this;
+    }
+
+    public function getArchivage(): ?bool
+    {
+        return $this->Archivage;
+    }
+
+    public function setArchivage(bool $Archivage): self
+    {
+        $this->Archivage = $Archivage;
 
         return $this;
     }

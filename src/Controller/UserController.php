@@ -190,6 +190,7 @@ class UserController extends AbstractController
      */
     public function putUser(Request $request, PostService $postService, 
     EntityManagerInterface $manager,SerializerInterface $serializer,UserRepository $u, $id) {
+
         $userForm= $postService->UpdateUser($request, 'photo');
         // dd($userForm);
          $user = $u->find($id);
@@ -204,10 +205,12 @@ class UserController extends AbstractController
                  //dd($user);
              }
          }
+         
          $manager->flush();
-         return new JsonResponse("success",200,[],true);
- 
+
+         return new JsonResponse("success",200) ;
+
      }
-    
+     
 
 }

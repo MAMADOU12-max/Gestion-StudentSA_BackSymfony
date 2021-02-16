@@ -36,21 +36,20 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
  *           }
  *     },
  *      itemOperations={
- *               "getusersbyId"={
- *                  "path"="/admin/users/{id}" ,
- *                  "security_post_denormalize"="is_granted('ROLE_ADMIN')"   ,
- *                "security_message"="Only admins can add users." ,
- *                 "method"="GET"
- *              },
- *                 "deletebyId"={
- *                      "route_name"="deleteUser" ,
- *                  "security_post_denormalize"="is_granted('ROLE_ADMIN')"   ,
- *                "security_message"="Only admins can add users."
- *              }
-
- *     }
- * )
- */
+*               "getusersbyId"={
+*                  "path"="/admin/users/{id}" ,
+*                  "security_post_denormalize"="is_granted('ROLE_ADMIN')"   ,
+*                "security_message"="Only admins can add users." ,
+*                 "method"="GET"
+*              },
+*                 "deletebyId"={
+*                      "route_name"="deleteUser" ,
+*                  "security_post_denormalize"="is_granted('ROLE_ADMIN')"   ,
+*                "security_message"="Only admins can add users."
+*              }
+*     }
+* )
+*/
 class User implements UserInterface
 {
     /**

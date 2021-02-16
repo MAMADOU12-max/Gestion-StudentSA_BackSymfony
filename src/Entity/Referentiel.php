@@ -9,6 +9,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints\File;
 
 /**
  * @ORM\Entity(repositoryClass=ReferentielRepository::class)
@@ -24,26 +26,27 @@ use Symfony\Component\Serializer\Annotation\Groups;
  *                 "method"="GET"  ,
  *                 "normalization_context"={"groups"={"referentielCompetence:read"}}
  *          } ,
- *          "postReferentiel" = {
- *               "path"="/admin/referentiels" ,
- *                "method"="POST"  ,
+ *          "addReferentiel" = {
+ *                "route_name"="addReferentiel" ,
  *                "normalization_context"={"groups"={"postReferentiel:read"}}
  *          }
  *      } ,
  *     itemOperations={
- *          "getReferentielById"={
- *                 "path"="/admin/referentiels/{id}" ,
- *                "method"="GET"  ,
- *                "normalization_context"={"groups"={"getReferentielById:read"}}
- *          },
 *          "deleteReferentielById"={
 *                 "path"="/admin/referentiels/{id}" ,
 *                "method"="DELETE"  ,
 *                "normalization_context"={"groups"={"deleteReferentielById:read"}}
+*          },
+*          "getReferentielById"={
+*                 "path"="/admin/referentiels/{id}" ,
+*                "method"="GET"  ,
+*                "normalization_context"={"groups"={"getReferentielById:read"}}
 *          }
- *     }
+*     }
  * )
  */
+
+
 class Referentiel
 {
     /**
@@ -67,7 +70,7 @@ class Referentiel
     /**
      * @ORM\ManyToMany(targetEntity=GroupeCompetence::class, inversedBy="referentiels")
      * @Groups({"referentiel:read","referentielCompetence:read","getReferentielById:read","getPromorefbyId:read","getPromoRefbyId:read",
-     *  "getPromoRefbAppreneaAttenteById:read"})
+     *  "getPromoRefbAppreneaAttenteById:read","postReferentiel:read"})
      * @ApiSubresource
      */
     private $grpcompetence;
@@ -79,6 +82,8 @@ class Referentiel
 
     /**
      * @ORM\Column(type="blob", nullable=true)
+     * @Groups({"referentielCompetence:read","postReferentiel:read","getReferentielById:read",
+     *          "referentiel:read"})
      */
     private $programme;
 
@@ -97,6 +102,14 @@ class Referentiel
            *     "getPromorefbyId:read","getPromoFormateurById:read"})
      */
     private $critereDadmission;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+    * @Groups({"referentiel:read","referentielCompetence:read","postReferentiel:read","getReferentielById:read",
+     *     "getAllpromo:read","getAllpromoprincipal:read","getallgroupe:read","getPromoId:read","getPromoprincipalbyId:read",
+     *     "getPromorefbyId:read","getPromoFormateurById:read"})
+     */
+    private $presentation;
 
     public function __construct()
     {
@@ -177,7 +190,16 @@ class Referentiel
 
     public function getProgramme()
     {
-        return $this->programme;
+        if ($this->programme) {
+            $data = stream_get_contents($this->programme);
+            if (!$this->programme) {
+
+                fclose($this->programme);
+            }
+
+
+            return base64_encode($data);
+        }
     }
 
     public function setProgramme($programme): self
@@ -207,6 +229,18 @@ class Referentiel
     public function setCritereDadmission(?string $critereDadmission): self
     {
         $this->critereDadmission = $critereDadmission;
+
+        return $this;
+    }
+
+    public function getPresentation(): ?string
+    {
+        return $this->presentation;
+    }
+
+    public function setPresentation(string $presentation): self
+    {
+        $this->presentation = $presentation;
 
         return $this;
     }

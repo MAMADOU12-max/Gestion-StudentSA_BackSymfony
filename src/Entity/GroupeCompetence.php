@@ -71,7 +71,8 @@ class GroupeCompetence
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"getPromoRefbyId:read","grpecompetenceCompetence:read","grpecompetence:read"})
+     * @Groups({"getPromoRefbyId:read","grpecompetenceCompetence:read","grpecompetence:read",
+     * "postcompetence:write"})
      */
     private $id;
 

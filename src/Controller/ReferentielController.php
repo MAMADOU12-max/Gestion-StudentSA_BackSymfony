@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 
 class ReferentielController extends AbstractController
 {
@@ -42,6 +43,57 @@ class ReferentielController extends AbstractController
         $this->referentielRepository = $referentielRepository ;
         $this->manager = $manager ;
         $this->serialier = $serializer ;
+    }
+
+
+    /**
+     * @Route(
+     *     name="addReferentiel",
+     *     path="/api/admin/referentiels",
+     *     methods={"POST"},
+     *     defaults={
+     *          "__controller"="App\Controller\ReferentielController::addReferentiel",
+     *          "__api_resource_class"="App\Entity\Referentiel::class",
+     *          "__api_collection_operation_name"="addReferentiel"
+     *     }
+     * )
+     */
+    public function addReferentiel(Request $request, EntityManagerInterface $manager,
+     GroupeCompetenceRepository $groupeCompetenceRepository, SerializerInterface $serializer) {
+
+        $referentielAdded = $request->request->all();
+
+        $referentiel = $serializer->denormalize($referentielAdded, "App\Entity\Referentiel");
+       // dd($referentielAdded);
+     
+        // get file if exist
+        $programme = $request->files->get('programme');
+        if ($programme) {
+            $getRealpathprogramme = $programme->getRealPath();  
+            //dd($getRealpathprogramme);
+            $openProgramme = fopen($getRealpathprogramme, 'r+');
+           // dd($openProgramme);
+            $referentiel->setProgramme($openProgramme);
+        }
+        
+         // get file if groupeCompetence exist
+        if ($referentielAdded['groupeCompetences']){
+            $AllgroupeCompetence = explode (',', $referentielAdded['groupeCompetences']);
+            // dd($referentielAdded);
+            for ($i=0; $i < count($AllgroupeCompetence); $i++) {
+                
+                if ($groupeCompetenceRepository->findOneBy(['id'=>(int)$AllgroupeCompetence[$i]])) {
+                    
+                     $referentiel->addGrpcompetence($groupeCompetenceRepository->findOneBy(['id'=>(int)$AllgroupeCompetence[$i]]));
+                   
+                }
+            }
+        }
+
+        // dd($referentiel);
+        $manager->persist($referentiel);
+        $manager->flush();
+        return $this->json("success", 201);
     }
 
 
@@ -86,4 +138,5 @@ class ReferentielController extends AbstractController
         $this->manager->flush();
         return new JsonResponse("valid",200,[],true) ;
     }
+
 }
