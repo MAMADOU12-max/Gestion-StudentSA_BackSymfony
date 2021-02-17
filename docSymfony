@@ -1,0 +1,17 @@
+PROJET SYMFONY BACKEND
+
+
+I/  LANCEMENT DU PROJET
+
+Une fois le projet téléchargé sur github exécuter la commande composer install afin d'installer les bundles nécessaires.
+
+Après installation démarrer le serveur via la commande php bin/console serve:run pour ouvrir le projet automatiquement dans le navigateur.
+
+Nous pouvons créer la base de donnée avec la commande php bin/console doctrine :database:create.
+
+_  Faire les migrations avec la commande php bin/console make:migrations
+
+_  Lancer les fixtures via la commande php bin/console doctrine:fixtures:load
+
+_ la base de donnée est exportée, ça correspond au fichier BackRougeSelf.sql à l'interieur du projet.
+
